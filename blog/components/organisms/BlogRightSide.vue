@@ -10,27 +10,30 @@
     </div>
     <div class="sidebar-box ftco-animate">
       <h3>Categories</h3>
-      <BlogCategoryInfo />
+
+      <!-- 카테고리 정보영역 -->
+      <BlogCategoryInfo :categoryInfos="blogData.categoryInfos"></BlogCategoryInfo>
     </div>
+
+    <!-- 삭제 -->
 
     <div class="sidebar-box ftco-animate">
       <h3>Tag Cloud</h3>
       <ul class="tagcloud">
-        <a href="#" class="tag-cloud-link">dish</a>
-        <a href="#" class="tag-cloud-link">menu</a>
-        <a href="#" class="tag-cloud-link">food</a>
-        <a href="#" class="tag-cloud-link">sweet</a>
-        <a href="#" class="tag-cloud-link">tasty</a>
-        <a href="#" class="tag-cloud-link">delicious</a>
-        <a href="#" class="tag-cloud-link">desserts</a>
-        <a href="#" class="tag-cloud-link">drinks</a>
+        <a href="#" class="tag-cloud-link" v-for="t in blogData.tagCloud" :key="t">{{ t }}</a>
       </ul>
     </div>
 
+    <!-- 삭제 -->
+
     <div class="sidebar-box ftco-animate">
       <h3>Archives</h3>
-      <BlogArchives />
+
+      <!-- 연월별 작성글 컴포넌트 -->
+      <BlogArchives :archives="blogData.archives"></BlogArchives>
     </div>
+
+    <!-- 삭제 -->
   </div>
 </template>
 
@@ -42,6 +45,13 @@ export default {
   components: {
     BlogCategoryInfo,
     BlogArchives
+  },
+
+  props: {
+    blogData: {
+      type: Object,
+      default: () => {}
+    }
   }
 };
 </script>

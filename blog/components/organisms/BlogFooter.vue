@@ -28,13 +28,17 @@
         <div class="col-md">
           <div class="ftco-footer-widget mb-4 ml-md-4">
             <h2 class="ftco-heading-2">Categories</h2>
-            <BlogCategoryInfo />
+
+            <!-- 카테고리 정보 컴포넌트 -->
+            <BlogCategoryInfo :categoryInfos="blogData.categoryInfos"></BlogCategoryInfo>
           </div>
         </div>
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Archives</h2>
-            <BlogArchives />
+
+            <!-- 연월별 작성글 컴포넌트 -->
+            <BlogArchives :archives="blogData.archives"></BlogArchives>
           </div>
         </div>
         <div class="col-md">
@@ -89,6 +93,13 @@ export default {
   components: {
     BlogCategoryInfo,
     BlogArchives
+  },
+
+  props: {
+    blogData: {
+      type: Object,
+      default: () => {}
+    }
   },
 
   computed: {

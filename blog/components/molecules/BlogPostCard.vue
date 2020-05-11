@@ -3,20 +3,20 @@
     <div class="blog-entry ftco-animate">
       <a href="#" class="img" style="background-image: url(images/image_1.jpg);"></a>
       <div class="text pt-2 mt-5">
-        <span class="big">South America</span>
+        <span class="big">{{ category.name }}</span>
         <h3 class="mb-4">
-          <a href="#">Hawaii known as the Big Island</a>
+          <a href="#">{{ title }}</a>
         </h3>
-        <p
-          class="mb-4"
-        >Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+        <p class="mb-4">
+          {{ content }}
+        </p>
         <div class="author mb-4 d-flex align-items-center">
           <a href="#" class="img" style="background-image: url(images/person_1.jpg);"></a>
           <div class="ml-3 info">
             <span>Written by</span>
             <h3>
               <a href="#">Dave Lewis</a>,
-              <span>October 04, 2018</span>
+              <span>{{ createAt }}</span>
             </h3>
           </div>
         </div>
@@ -44,3 +44,31 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    category: {
+      type: Object,
+      required: true,
+      default: () => {}
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    },
+    createAt: {
+      type: Date,
+      required: true
+    }
+  }
+}
+</script>

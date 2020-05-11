@@ -1,40 +1,21 @@
 <template>
   <ul class="list-unstyled categories">
-    <li>
+    <li v-for="a in archives" :key="a.id">
       <a href="#">
-        September 2018
-        <span>(6)</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        August 2018
-        <span>(8)</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        July 2018
-        <span>(2)</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        June 2018
-        <span>(7)</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        May 2018
-        <span>(5)</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        April 2018
-        <span>(3)</span>
+        {{ a.archiveDate.year }} {{ a.archiveDate.month }}
+        <span>({{ a.count }})</span>
       </a>
     </li>
   </ul>
 </template>
+
+<script>
+export default {
+  props: {
+    archives: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
+</script>

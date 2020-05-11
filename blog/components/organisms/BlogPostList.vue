@@ -1,8 +1,8 @@
 <template>
   <div>
-    <BlogPostCard />
-      
-    <BlogPostCard />
+    <div v-for="post in postList" :key="post.id">
+      <BlogPostCard v-bind="post"></BlogPostCard>
+    </div>
   </div>
 </template>
 
@@ -12,6 +12,13 @@ import BlogPostCard from "~/components/molecules/BlogPostCard.vue"
 export default {
     components: {
         BlogPostCard
+    },
+
+    props: {
+      postList: {
+        type: Array,
+        default: () => []
+      }
     }
 }
 </script>
