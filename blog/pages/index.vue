@@ -89,7 +89,9 @@ export default {
   async fetch(context) {
 	  if(context.store.state.post.postList.length == 0) {
 		  context.store.dispatch("post/initData")
-	  }
+    }
+    
+    return context.store.dispatch("post/fetchList")
   },
 
   computed: {

@@ -16,7 +16,7 @@
             <span>Written by</span>
             <h3>
               <a href="#">Dave Lewis</a>,
-              <span>{{ createAt }}</span>
+              <span>{{ createAtStr }}</span>
             </h3>
           </div>
         </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import formatDate from '~/components/formatDate'
+
 export default {
   props: {
     id: {
@@ -66,8 +68,14 @@ export default {
       required: true
     },
     createAt: {
-      type: Date,
+      type: Number,
       required: true
+    }
+  },
+
+  computed: {
+    createAtStr() {
+      return formatDate(this.createAt)
     }
   }
 }
